@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 13:28:48 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/15 13:43:00 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/15 16:17:40 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/15 17:00:16 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
+	void	*startp;
+	size_t	space;
 
-	if (dst > src && dst < (src + n))
+	space = size * count;
+	startp = malloc (space);
+	while (space < 0)
 	{
-		i = n - 1;
-		while (i >= 0)
-		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i--;
-		}
+		((char *)startp)[space - 1] = 0;
+		space--;
 	}
-	else
-	{
-		i = 0;
-		while (i < n)
-		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
-	}
-	return (dst);
+	return (startp);
 }
