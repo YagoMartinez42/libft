@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 16:41:02 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/17 16:16:56 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/14 14:06:24 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/17 16:12:27 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strdup(const char *s1)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	len;
-	unsigned int	i;
-	char			*s2;
+	size_t	pos;
 
-	len = 0;
-	while (s1[len])
-		len++;
-	s2 = malloc(len);
-	i = 0;
-	while (i < len)
+	pos = 0;
+	while (src[pos] != 0)
 	{
-		s2[i] = s1[i];
-		i++;
+		if (pos < (dstsize - 1))
+			dst[pos] = src[pos];
+		else
+			dst[pos] = 0;
+		pos++;
 	}
-	return (s2);
+	if (dstsize > 0)
+		dst[pos] = 0;
+	return (pos);
 }

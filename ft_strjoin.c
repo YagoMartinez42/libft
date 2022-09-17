@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 16:41:02 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/17 16:16:56 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/16 19:10:11 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/17 16:09:52 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	len;
+	char			*str;
+	unsigned int	len1;
+	unsigned int	len2;
 	unsigned int	i;
-	char			*s2;
 
-	len = 0;
-	while (s1[len])
-		len++;
-	s2 = malloc(len);
-	i = 0;
-	while (i < len)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	str = malloc(len1 + len2);
+	if (str)
 	{
-		s2[i] = s1[i];
-		i++;
+		ft_strlcpy (str, s1, len1);
+		ft_strlcat (str, s2, (len1 + len2));
 	}
-	return (s2);
+	return (str);
 }

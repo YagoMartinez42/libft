@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 16:41:02 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/17 16:16:56 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/14 16:31:34 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/17 16:15:55 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strdup(const char *s1)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int	len;
-	unsigned int	i;
-	char			*s2;
+	int	pos;
 
-	len = 0;
-	while (s1[len])
-		len++;
-	s2 = malloc(len);
-	i = 0;
-	while (i < len)
+	pos = 0;
+	while (s[pos] != 0)
+		pos++;
+	while (pos >= 0)
 	{
-		s2[i] = s1[i];
-		i++;
+		if (s[pos] == c)
+			return ((char *)s + pos);
+		pos--;
 	}
-	return (s2);
+	return (0);
 }
