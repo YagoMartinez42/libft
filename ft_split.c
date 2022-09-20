@@ -6,61 +6,63 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/19 20:47:10 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:10:12 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int count_words(const char *s, char c)
+#include <stdlib.h>
+
+int	count_words(const char *s, char c)
 {
 	unsigned int	i;
-    unsigned int    count;
+	unsigned int	count;
 
+	count = 1;
 	i = 0;
-    count = count_words(s, c);
 	while (s[i] != 0)
 	{
 		if (s[i] == c)
 			count++;
 		i++;
 	}
-    return (count);
+	return (count);
 }
 
-const char  *add_word(const char *s, char  c, char **words, unsigned int i)
+const char	*add_word(const char *s, char c, char **words, unsigned int i)
 {
-    unsigned int    len;
-    unsigned int    j;
+	unsigned int	len;
+	unsigned int	j;
 
-    len = 0;
+	len = 0;
 	while (s[len] != c && s[len] != 0)
 		len++;
-    words[i] = malloc (sizeof(char) * (len + 1));
-    j = 0;
-    while (j < len)
-    {
-        words[i][j] = *s;
-        s++;
-        j++;
-    }
-    words[i][j] = 0;
-    return (s);
+	words[i] = malloc (sizeof(char) * (len + 1));
+	j = 0;
+	while (j < len)
+	{
+		words[i][j] = *s;
+		s++;
+		j++;
+	}
+	words[i][j] = 0;
+	return (s +	1);
 }
 
-char    **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	unsigned int	i;
-    unsigned int    j;
-    unsigned int    str_count;
-    char**          words;
+	unsigned int	str_count;
+	char			**words;
 
-    i = 0;
-    words = malloc (sizeof(char *) * (str_count + 1));
-    while (i < str_count)
-    {
-        s = add_word(s, c, words, i);
-        i++;
-    }
-    words[i] = malloc (sizeof(char));
-    words[i][0] = 0;
-    return (words);
+	str_count = count_words(s, c);
+	words = malloc (sizeof(char *) * (str_count + 1));
+	i = 0;
+	while (i < str_count)
+	{
+		s = add_word(s, c, words, i);
+		i++;
+	}
+	words[i] = malloc (sizeof(char));
+	words[i][0] = 0;
+	return (words);
 }
