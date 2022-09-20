@@ -6,11 +6,11 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:17:16 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/15 17:00:46 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:47:57 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	get_mltp(const char *str)
+static int	get_mltp(const char *str)
 {
 	int	i;
 	int	mltp;
@@ -29,7 +29,7 @@ int	get_mltp(const char *str)
 		return (mltp);
 }
 
-int	get_sign(const char *str, int *sign)
+static int	get_sign(const char *str, int *sign)
 {
 	int	i;
 

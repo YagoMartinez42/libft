@@ -6,13 +6,13 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/20 13:10:12 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:48:01 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	unsigned int	i;
 	unsigned int	count;
@@ -28,7 +28,7 @@ int	count_words(const char *s, char c)
 	return (count);
 }
 
-const char	*add_word(const char *s, char c, char **words, unsigned int i)
+static const char	*add_word(const char *s, char c, char **words, unsigned int i)
 {
 	unsigned int	len;
 	unsigned int	j;
