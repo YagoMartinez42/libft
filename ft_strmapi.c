@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 19:10:11 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/21 11:10:05 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/21 10:41:45 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/21 11:02:53 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*str;
-	unsigned int	len1;
-	unsigned int	len2;
+    unsigned int   len;
+    unsigned int   i;
+    char           *dst;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = malloc(len1 + len2 + 1);
-	if (str)
-	{
-		ft_strlcpy (str, s1, len1 + 1);
-		ft_strlcat (str, s2, (len1 + len2 + 1));
-	}
-	return (str);
+    len = ft_strlen(s);
+    dst = malloc(len);
+    i = 0;
+    while (s[i])
+    {
+        dst[i] = (*f)(i, s[i]);
+        i++;
+    }
+    return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/20 16:48:01 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:21:30 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ char	**ft_split(char const *s, char c)
 		s = add_word(s, c, words, i);
 		i++;
 	}
-	words[i] = malloc (sizeof(char));
-	words[i][0] = 0;
+	words[i] = NULL;
 	return (words);
 }
