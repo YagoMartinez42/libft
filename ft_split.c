@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/21 13:37:24 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/24 18:48:09 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,27 @@
 static int	count_words(const char *s, char c)
 {
 	unsigned int	i;
+	unsigned int	wd_flg;
 	unsigned int	count;
 
-	count = 1;
 	i = 0;
+	wd_flg = 0;
+	count = 0;
 	while (s[i] != 0)
 	{
 		if (s[i] == c)
-			count++;
+		{
+			if (wd_flg == 1)
+				wd_flg = 0;
+		}
+		else
+		{
+			if (wd_flg == 0)
+			{
+				wd_flg = 1;
+				count++;
+			}
+		}
 		i++;
 	}
 	return (count);
@@ -37,6 +50,8 @@ static const char	*add_word(const char *s, char c, char **ws, unsigned int i)
 	while (s[len] != c && s[len] != 0)
 		len++;
 	ws[i] = malloc (sizeof(char) * (len + 1));
+	if (!ws[i])
+		return (NULL);
 	j = 0;
 	while (j < len)
 	{
@@ -44,8 +59,8 @@ static const char	*add_word(const char *s, char c, char **ws, unsigned int i)
 		s++;
 		j++;
 	}
-	ws[i][j] = 0;
-	return (s + 1);
+	ws[i][j] = '\0';
+	return (s);
 }
 
 char	**ft_split(char const *s, char c)
@@ -56,10 +71,16 @@ char	**ft_split(char const *s, char c)
 
 	str_count = count_words(s, c);
 	words = malloc (sizeof(char *) * (str_count + 1));
+	if (!words)
+		return (NULL);
 	i = 0;
 	while (i < str_count)
 	{
+		while (*s == c)
+			s++;
 		s = add_word(s, c, words, i);
+		if (!s)
+			return (NULL);
 		i++;
 	}
 	words[i] = NULL;

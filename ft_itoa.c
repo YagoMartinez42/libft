@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:22:04 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/20 17:52:07 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/24 17:01:34 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	drop_d(char *nb_as_str, int n, int sign)
 		dig++;
 		nb_as_str[dig] = '-';
 	}
-	nb_as_str[dig + 1] = 0;
+	nb_as_str[dig + 1] = '\0';
 	return (dig);
 }
 
@@ -61,7 +61,9 @@ char	*ft_itoa(int n)
 	unsigned int	dig;
 	int				sign;
 
-	nb_as_str = malloc (11);
+	nb_as_str = malloc (12);
+	if (!nb_as_str)
+		return (NULL);
 	if (n < 0)
 		sign = -1;
 	else

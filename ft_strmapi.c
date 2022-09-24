@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:41:45 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/23 17:18:25 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/24 16:08:18 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*dst;
 
 	len = ft_strlen(s);
-	dst = malloc(len +1);
+	dst = malloc(len + 1);
 	if (dst == NULL)
 		return (NULL);
 	i = 0;
@@ -28,5 +28,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		dst[i] = f(i, s[i]);
 		i++;
 	}
+	dst[i] = '\0';
 	return (dst);
 }
