@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:28:48 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/16 19:45:35 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:44:41 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	int	i;
 
+	if (src == NULL && dst == NULL)
+		return (NULL);
 	if (dst > src && dst < (src + n))
 	{
 		i = (int)n - 1;

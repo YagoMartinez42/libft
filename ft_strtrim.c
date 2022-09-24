@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 17:28:37 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/19 20:47:16 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/24 15:48:42 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	len;
 	unsigned int	i;
 
+	if (!s1 || !set)
+		return ((char *)s1);
 	len = ft_strlen(s1);
 	while (*s1 != 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/21 11:21:30 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/21 13:37:24 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
-static const char	*add_word(const char *s, char c, char **words, unsigned int i)
+static const char	*add_word(const char *s, char c, char **ws, unsigned int i)
 {
 	unsigned int	len;
 	unsigned int	j;
@@ -36,16 +36,16 @@ static const char	*add_word(const char *s, char c, char **words, unsigned int i)
 	len = 0;
 	while (s[len] != c && s[len] != 0)
 		len++;
-	words[i] = malloc (sizeof(char) * (len + 1));
+	ws[i] = malloc (sizeof(char) * (len + 1));
 	j = 0;
 	while (j < len)
 	{
-		words[i][j] = *s;
+		ws[i][j] = *s;
 		s++;
 		j++;
 	}
-	words[i][j] = 0;
-	return (s +	1);
+	ws[i][j] = 0;
+	return (s + 1);
 }
 
 char	**ft_split(char const *s, char c)
