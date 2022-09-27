@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 11:29:35 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/27 15:36:05 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/26 15:45:55 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/26 20:27:55 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void tsttoupper(unsigned  int i, char* s)
-{
-	i++;
-	if (*s >= 'a' && *s <= 'z')
-		*s -= 32;
-}
+#include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	unsigned int	i;
+	t_list	*swap;
 
-	i = 0;
-	while (s[i])
+	if (lst)
 	{
-		f(i, &s[i]);
-		i++;
+		while ((*lst)->next != NULL)
+		{
+			if (del)
+				del((*lst)->content);
+			free((*lst)->content);
+			swap = (*lst)->next;
+			(*lst)->next = NULL;
+			lst = &swap;
+		}
+		lst = NULL;
 	}
-}
-
-#include <stdio.h>
-
-int main ()
-{
-	char s[20] = "Hola mundo";
-	ft_striteri(s, tsttoupper);
-	printf("%s", s);
 }

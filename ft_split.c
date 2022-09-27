@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/24 18:48:09 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:15:12 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,12 @@ static const char	*add_word(const char *s, char c, char **ws, unsigned int i)
 		len++;
 	ws[i] = malloc (sizeof(char) * (len + 1));
 	if (!ws[i])
+	{
+		while (i--)
+			free(ws[i]);
+		free(ws[i]);
 		return (NULL);
+	}
 	j = 0;
 	while (j < len)
 	{
@@ -80,7 +85,10 @@ char	**ft_split(char const *s, char c)
 			s++;
 		s = add_word(s, c, words, i);
 		if (!s)
+		{
+			free (words);
 			return (NULL);
+		}
 		i++;
 	}
 	words[i] = NULL;

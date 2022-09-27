@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 17:46:49 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/24 19:03:43 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:56:29 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	unsigned int	slen;
 
 	slen = ft_strlen(s);
-	sub = malloc (len + 1);
-	if (sub == NULL)
-		return (NULL);
+	if (start >= slen)
+		sub = ft_calloc(1, 1);
+	else
+		sub = malloc ((len + 1) * (sizeof(char)));
+	if (sub == NULL || *sub == '\0')
+		return (sub);
 	i = 0;
 	while (i < len && s[start + i])
 	{

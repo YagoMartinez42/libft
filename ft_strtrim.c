@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 17:28:37 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/24 18:20:53 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:20:56 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	*trim_it(char const *s1, char const *set, unsigned int *len)
 			i--;
 		}
 	}
-	return ((char*)s1);
+	return ((char *)s1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)

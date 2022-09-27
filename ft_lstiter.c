@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 11:29:35 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/27 15:36:05 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/26 18:25:27 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/26 20:17:42 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void tsttoupper(unsigned  int i, char* s)
-{
-	i++;
-	if (*s >= 'a' && *s <= 'z')
-		*s -= 32;
-}
+#include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
+	if (lst)
 	{
-		f(i, &s[i]);
-		i++;
+		f(lst->content);
+		while (lst->next != NULL)
+		{
+			lst = lst->next;
+			f(lst->content);
+		}
 	}
-}
-
-#include <stdio.h>
-
-int main ()
-{
-	char s[20] = "Hola mundo";
-	ft_striteri(s, tsttoupper);
-	printf("%s", s);
 }
