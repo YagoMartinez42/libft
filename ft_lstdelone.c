@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:31:07 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/26 17:21:29 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:28:38 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst)
+	if (lst && del)
 	{
 		del(lst->content);
-		free(lst->content);
+		free(lst);
 	}
 }

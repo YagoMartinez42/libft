@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 17:28:37 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/26 17:20:56 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:04:56 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	len;
 
 	if (!(*s1) || !(*set))
-		return ((char *)s1);
+	{
+		str = malloc(sizeof(char));
+		if (!str)
+			return (NULL);
+		else
+			return (str);
+	}
 	len = ft_strlen(s1);
 	s1 = trim_it(s1, set, &len);
-	str = malloc(len + 1);
+	str = malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s1, len + 1);

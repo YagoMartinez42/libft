@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:45:55 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/26 20:27:55 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:21:45 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (lst)
 	{
-		while ((*lst)->next != NULL)
+		while (*lst)
 		{
-			if (del)
-				del((*lst)->content);
-			free((*lst)->content);
 			swap = (*lst)->next;
-			(*lst)->next = NULL;
-			lst = &swap;
+			if (del)
+				ft_lstdelone(*lst, del);
+			*lst = swap;
 		}
-		lst = NULL;
 	}
 }
