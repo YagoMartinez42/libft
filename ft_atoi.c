@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:17:16 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/26 15:55:41 by samartin         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:58:16 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ static int	get_mltp(const char *str)
 	int	mltp;
 
 	i = 0;
-	mltp = 1;
+	mltp = -1;
+	while (str[i] == '0')
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (i > 0)
+		if (mltp == -1)
+			mltp = 1;
+		else
 			mltp = mltp * 10;
 		i++;
 	}
@@ -42,17 +46,18 @@ static int	get_sign(const char *str, int *sign)
 			return (-1);
 		i++;
 	}
-	*sign = 0;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			*sign = *sign + 1;
+		*sign = -1;
 		i++;
 	}
-	if (*sign % 2 == 0)
+	else if (str[i] == '+')
+	{
 		*sign = 1;
+		i++;
+	}
 	else
-		*sign = -1;
+		*sign = 1;
 	return (i);
 }
 
@@ -71,6 +76,8 @@ int	ft_atoi(const char *str)
 	if (mltp == 0)
 		return (0);
 	nb = 0;
+	while (str[i] == '0')
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb += (str[i] - 48) * mltp;
