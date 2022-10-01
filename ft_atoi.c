@@ -6,21 +6,25 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:17:16 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/30 11:58:16 by samartin         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:01:12 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	get_mltp(const char *str)
+static long	get_mltp(const char *str)
 {
-	int	i;
-	int	mltp;
+	int		i;
+	long	mltp;
 
 	i = 0;
 	mltp = -1;
 	while (str[i] == '0')
 		i++;
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (mltp > __INT_MAX__)
+			return (-1);
 		if (mltp == -1)
 			mltp = 1;
 		else
@@ -61,20 +65,10 @@ static int	get_sign(const char *str, int *sign)
 	return (i);
 }
 
-int	ft_atoi(const char *str)
+static long	parse_nb(const char *str, long long mltp, int i)
 {
-	int	i;
-	int	sign;
-	int	nb;
-	int	mltp;
+	long	nb;
 
-	sign = 0;
-	i = get_sign(str, &sign);
-	if (i == -1)
-		return (0);
-	mltp = get_mltp(&str[i]);
-	if (mltp == 0)
-		return (0);
 	nb = 0;
 	while (str[i] == '0')
 		i++;
@@ -84,6 +78,30 @@ int	ft_atoi(const char *str)
 		mltp = mltp / 10;
 		i++;
 	}
-	nb = nb * sign;
 	return (nb);
+}
+
+int	ft_atoi(const char *str)
+{
+	int		i;
+	int		sign;
+	long	nb;
+	long	mltp;
+
+	sign = 0;
+	i = get_sign(str, &sign);
+	if (i == -1)
+		return (0);
+	mltp = get_mltp(&str[i]);
+	if (mltp == 0 || (mltp == -1 && sign == -1))
+		return (0);
+	else if (mltp == -1 && sign == 1)
+		return (-1);
+	nb = parse_nb(str, mltp, i) * sign;
+	if (nb > __INT_MAX__)
+		return (-1);
+	else if (nb < (-(__INT_MAX__) - 1))
+		return (0);
+	else
+		return ((int)nb);
 }

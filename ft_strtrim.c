@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 17:28:37 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/30 17:01:39 by samartin         ###   ########.fr       */
+/*   Updated: 2022/10/01 11:34:12 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char	*trim_it(char const *s1, char const *set, unsigned int *len)
 {
 	unsigned int	i;
 
-	while (*s1 != 0)
+	while (*s1)
 	{
 		if (!ft_strchr(set, *s1))
 			break ;
@@ -42,6 +42,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char			*str;
 	unsigned int	len;
 
+	if (!s1 || !set)
+		return (NULL);
 	if (!(*s1))
 	{
 		str = malloc(sizeof(char));

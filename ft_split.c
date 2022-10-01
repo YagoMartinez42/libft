@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/26 17:15:12 by samartin         ###   ########.fr       */
+/*   Updated: 2022/10/01 11:38:55 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**ft_split(char const *s, char c)
 	unsigned int	str_count;
 	char			**words;
 
+	if (!s)
+		return (NULL);
 	str_count = count_words(s, c);
 	words = malloc (sizeof(char *) * (str_count + 1));
 	if (!words)

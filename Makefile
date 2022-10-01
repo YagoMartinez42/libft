@@ -14,15 +14,18 @@ BNSOBJ :=	$(BNSSRCS:.c=.o)
 RM :=	rm -f
 CFLAGS :=	-Wall -Werror -Wextra
 NAME :=	libft.a
-AR :=	ar rcs
+AR :=	ar -rs
+BONUSM :=	.
 
 all:	$(NAME)
 
-$(NAME): $(OBJ)
-		$(AR) $(NAME) $(OBJ)
+$(NAME):	$(OBJ)
+		$(AR) $(NAME) $^
 
-bonus:	$(NAME) $(BNSOBJ)
-		$(AR) $(NAME) $(OBJ) $(BNSOBJ)
+$(BONUSM):	$(OBJ) $(BNSOBJ)
+		$(AR) $(NAME) $^ 
+
+bonus:	$(BONUSM)
 
 clean:
 		$(RM) $(OBJ) $(BNSOBJ)
@@ -31,5 +34,7 @@ fclean: clean
 		$(RM) $(NAME)
 
 re:	fclean all
+
+re-bonus: fclean bonus
 
 .PHONY:	all clean fclean re bonus

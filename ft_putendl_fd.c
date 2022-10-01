@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:14:19 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/21 14:12:29 by samartin         ###   ########.fr       */
+/*   Updated: 2022/10/01 12:06:37 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	while (*s)
+	if (s)
 	{
-		write (fd, s, 1);
-		s++;
+		while (*s)
+		{
+			write (fd, s, 1);
+			s++;
+		}
+		write (fd, "\n", 1);
 	}
-	write (fd, "\n", 1);
 }
