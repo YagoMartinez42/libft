@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:50:13 by samartin          #+#    #+#             */
-/*   Updated: 2022/10/21 15:37:20 by samartin         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:17:16 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ static void	print_addr(void *addr)
 	}
 	ft_putstr_fd (addr_line, 1);
 	ft_putstr_fd (": ", 1);
+	free(addr_line);
 }
 
 static void	print_val(char *sym_line, void *addr, unsigned int pos)
 {
 	unsigned char	c;
+	char			*pair;
 
 	if (!addr)
 	{
@@ -63,7 +65,9 @@ static void	print_val(char *sym_line, void *addr, unsigned int pos)
 		c = *(unsigned char *)addr;
 		if (c < 16)
 			ft_putstr_fd("0", 1);
-		ft_putstr_fd(ft_itoab(c, 16), 1);
+		pair = ft_itoab(c, 16);
+		ft_putstr_fd(pair, 1);
+		free (pair);
 		if (c >= ' ' && c <= '~')
 			sym_line[pos % 16] = c;
 		else
@@ -97,6 +101,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	free (sym_line);
 	return (addr);
 }
+
 /*
 #include <stdio.h>
 
@@ -106,6 +111,6 @@ int main (void)
 
 	ft_print_memory(poing, 100);
 	printf("\n\n%p", poing);
+	system("leaks -q a.out");
 }
-
 */

@@ -6,20 +6,19 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:56:46 by samartin          #+#    #+#             */
-/*   Updated: 2022/10/01 12:07:14 by samartin         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:57:06 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	int len;
+
 	if (s)
 	{
-		while (*s)
-		{
-			write (fd, s, 1);
-			s++;
-		}
+		len = ft_strlen(s);
+		write (fd, s, len);
 	}
 }
