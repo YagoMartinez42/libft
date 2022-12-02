@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 11:45:40 by samartin          #+#    #+#             */
-/*   Updated: 2022/10/21 11:46:01 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/22 11:38:52 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/23 17:15:41 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static char	*ft_strcat(char *dest, char *src)
-{
-	int	pos1;
-	int	pos2;
+#include "libft.h"
 
-	if (!dest)
+int	ft_lstsize(t_list *lst)
+{
+	unsigned int	lst_len;
+
+	if (lst == NULL)
 		return (0);
-	pos1 = 0;
-	pos2 = 0;
-	while (dest[pos1])
-		pos1++;
-	while (src && src[pos2])
+	lst_len = 1;
+	while (lst->next != NULL)
 	{
-		dest[pos1] = src[pos2];
-		pos1++;
-		pos2++;
+		lst = lst->next;
+		lst_len++;
 	}
-	dest[pos1] = 0;
-	return (dest);
+	return (lst_len);
 }

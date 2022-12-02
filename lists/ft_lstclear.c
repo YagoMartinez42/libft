@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 12:14:19 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/01 14:17:45 by samartin         ###   ########.fr       */
+/*   Created: 2022/09/26 15:45:55 by samartin          #+#    #+#             */
+/*   Updated: 2022/09/28 17:21:45 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int len;
+	t_list	*swap;
 
-	if (s)
+	if (lst)
 	{
-		len = ft_strlen(s);
-		write (fd, s, len);
+		while (*lst)
+		{
+			swap = (*lst)->next;
+			if (del)
+				ft_lstdelone(*lst, del);
+			*lst = swap;
+		}
 	}
-	write (fd, "\n", 1);
 }

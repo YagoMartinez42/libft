@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_printf_alpha_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 12:14:19 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/01 14:17:45 by samartin         ###   ########.fr       */
+/*   Created: 2022/11/23 18:25:08 by samartin          #+#    #+#             */
+/*   Updated: 2022/11/25 14:32:45 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_putendl_fd(char *s, int fd)
+unsigned int	pf_putchar(int chr)
 {
-	int len;
+	unsigned int	done;
 
-	if (s)
+	done = write (1, &chr, 1);
+	return (done);
+}
+
+unsigned int	pf_putstr(char *str)
+{
+	unsigned int	count;
+
+	count = 0;
+	if (str)
 	{
-		len = ft_strlen(s);
-		write (fd, s, len);
+		while (*str)
+		{
+			count += write (1, str, 1);
+			str++;
+		}
 	}
-	write (fd, "\n", 1);
+	else
+	{
+		write(1, "(null)", 6);
+		count = 6;
+	}
+	return (count);
 }
