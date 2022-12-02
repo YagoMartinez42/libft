@@ -6,30 +6,11 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:50:13 by samartin          #+#    #+#             */
-/*   Updated: 2022/11/16 14:17:16 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:40:58 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// compile with ft_itoab.c
-// Add when integrate:
-// #include "libft.h"
-#include <stdlib.h>
-// remove when integrate (+ft_putstr_fd +ft_itoab):
-#include <unistd.h>
-
-char	*ft_itoab(long n, unsigned int base);
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (s)
-	{
-		while (*s)
-		{
-			write (fd, s, 1);
-			s++;
-		}
-	}
-}
+#include "libft.h"
 
 static void	print_addr(void *addr)
 {
@@ -101,16 +82,3 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	free (sym_line);
 	return (addr);
 }
-
-/*
-#include <stdio.h>
-
-int main (void)
-{
-	char poing[40] = "Aquí hay algo ññ\t\n";
-
-	ft_print_memory(poing, 100);
-	printf("\n\n%p", poing);
-	system("leaks -q a.out");
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:39:35 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/01 14:39:04 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:41:58 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "./filem/get_next_line_bonus.h"
-# include "./print/ft_printf.h"
+# include "./print/ft_prints.h"
 # include "./lists/lists.h"
 
 int		ft_isalpha(int c);
@@ -28,6 +28,7 @@ void	*ft_memset(void *s, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
+char	*ft_strcpy(char *dest, char *src);
 char	*ft_strcat(char *dest, char *src);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);

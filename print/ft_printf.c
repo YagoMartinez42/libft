@@ -6,11 +6,11 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:44:40 by samartin          #+#    #+#             */
-/*   Updated: 2022/11/30 16:43:16 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:39:24 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_prints.h"
 
 static unsigned int	process_data(const char ftype, va_list f_args)
 {

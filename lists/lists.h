@@ -6,12 +6,12 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:33:13 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/01 14:36:31 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:38:55 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
+#ifndef LISTS_H
+# define LISTS_H
 # include <stdlib.h>
 
 typedef struct s_list

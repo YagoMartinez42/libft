@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_prints.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:48 by samartin          #+#    #+#             */
-/*   Updated: 2022/11/30 14:31:19 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:37:58 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTS_H
+# define FT_PRINTS_H
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
@@ -23,5 +23,6 @@ unsigned int	pf_putint(int num, char mode);
 unsigned int	pf_puthex(unsigned int num, char *hex_symbols);
 unsigned int	pf_putaddr(void *addr);
 unsigned int	pf_putfloat(double num);
+void			*ft_print_memory(void *addr, unsigned int size);
 
 #endif

@@ -6,36 +6,16 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:14:48 by samartin          #+#    #+#             */
-/*   Updated: 2022/10/20 16:09:12 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:44:21 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Add if long_min case is solved:
 // #include <limits.h>
-// Add when integrate:
-// #include "libft.h"
-#include <stdlib.h>
+#include "libft.h"
 
-// Remove when integrated:
-static char	*ft_strcpy(char *dest, char *src)
-{
-	int	pos;
 
-	pos = -1;
-	while (src[++pos] != 0)
-		dest[pos] = src[pos];
-	dest[pos] = src[pos];
-	return (dest);
-}
-
-static int	drop_d(char *str, long n, unsigned int base, int sign)
-{
-	unsigned long	dig;
-	char			base_symbols[33];
-
-	dig = 0;
-	ft_strcpy (base_symbols, "0123456789ABCDEFGHIJKLMNOPQRSTUV");
-/* I have to see this case in depth, is a very rare but cruel exception.
+/* I have to see ling_min case in depth, is a very rare but cruel exception.
    Solution was only for decimal.
 
 	if (n == LONG_MIN)
@@ -45,6 +25,13 @@ static int	drop_d(char *str, long n, unsigned int base, int sign)
 		dig++;
 	}
 */
+static int	drop_d(char *str, long n, unsigned int base, int sign)
+{
+	unsigned long	dig;
+	char			base_symbols[33];
+
+	dig = 0;
+	ft_strcpy (base_symbols, "0123456789ABCDEFGHIJKLMNOPQRSTUV");
 	while ((n * sign) >= base)
 	{
 		str[dig] = base_symbols[(n % base) * sign];
