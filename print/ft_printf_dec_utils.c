@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:25:17 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/02 13:56:32 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:11:36 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,16 @@ unsigned int	pf_putint(int num, char mode)
 	return (count);
 }
 
-#include <stdio.h>
-
+/*
 unsigned int	pf_putfloat(double num)
 {
 	unsigned int	count;
-	//unsigned int	exponent;
-	//unsigned int	fraction;
+	unsigned int	exponent;
+	unsigned int	fraction;
+	int				sign;
 
 	count = 0;
-	num++;
-	/*if (num >> 31 == 1)
-		count += write (1, "-", 1);
-	exponent = (unsigned int)((num << 1) >> 24);
-	pf_putint (num, 'u');*/
 
 	return (count);
 }
+*/

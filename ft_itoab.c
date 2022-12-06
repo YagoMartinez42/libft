@@ -6,32 +6,20 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:14:48 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/02 15:44:21 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:08:20 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Add if long_min case is solved:
-// #include <limits.h>
 #include "libft.h"
 
-
-/* I have to see ling_min case in depth, is a very rare but cruel exception.
-   Solution was only for decimal.
-
-	if (n == LONG_MIN)
-	{
-		str[0] = '9';
-		n = n / 10;
-		dig++;
-	}
-*/
 static int	drop_d(char *str, long n, unsigned int base, int sign)
 {
 	unsigned long	dig;
 	char			base_symbols[33];
+	char			base_lead_max[31];
 
 	dig = 0;
-	ft_strcpy (base_symbols, "0123456789ABCDEFGHIJKLMNOPQRSTUV");
+	ft_strcpy(base_symbols, "0123456789ABCDEFGHIJKLMNOPQRSTUV");
 	while ((n * sign) >= base)
 	{
 		str[dig] = base_symbols[(n % base) * sign];
@@ -68,14 +56,19 @@ char	*ft_itoab(long n, unsigned int base)
 	unsigned long	dig;
 	int				sign;
 
-	if (n < 0)
-		sign = -1;
+	if (base <= 32)
+	{
+		if (n < 0)
+			sign = -1;
+		else
+			sign = 1;
+		dig = drop_d (strswp, n, base, sign);
+		nb_as_str = malloc ((dig + 1) * (sizeof(char)));
+		if (!nb_as_str)
+			return (0);
+		rev_str(nb_as_str, strswp, dig);
+	}
 	else
-		sign = 1;
-	dig = drop_d (strswp, n, base, sign);
-	nb_as_str = malloc ((dig + 1) * (sizeof(char)));
-	if (!nb_as_str)
-		return (0);
-	rev_str(nb_as_str, strswp, dig);
+		return (NULL);
 	return (nb_as_str);
 }
