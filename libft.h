@@ -17,6 +17,7 @@
 # include "./filem/get_next_line_bonus.h"
 # include "./print/ft_prints.h"
 # include "./lists/lists.h"
+# include "./math/ft_math.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
