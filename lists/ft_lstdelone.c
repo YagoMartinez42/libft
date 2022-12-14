@@ -6,11 +6,11 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:31:07 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/29 15:28:38 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:06:16 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lists.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

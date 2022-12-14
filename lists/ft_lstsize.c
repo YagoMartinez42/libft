@@ -6,11 +6,11 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:38:52 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/23 17:15:41 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:05:56 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lists.h"
 
 int	ft_lstsize(t_list *lst)
 {

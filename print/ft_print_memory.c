@@ -6,11 +6,11 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:50:13 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/02 15:40:58 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:34:29 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static void	print_addr(void *addr)
 {

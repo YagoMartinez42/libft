@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:14:48 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/06 13:08:20 by samartin         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:58:34 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	drop_d(char *str, long n, unsigned int base, int sign)
 {
 	unsigned long	dig;
 	char			base_symbols[33];
-	char			base_lead_max[31];
 
 	dig = 0;
 	ft_strcpy(base_symbols, "0123456789ABCDEFGHIJKLMNOPQRSTUV");
