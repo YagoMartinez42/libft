@@ -30,8 +30,6 @@ static unsigned int	process_data(const char ftype, va_list f_args)
 		chrs_wrtn = pf_puthex(va_arg(f_args, unsigned int), "0123456789abcdef");
 	else if (ftype == 'X')
 		chrs_wrtn = pf_puthex(va_arg(f_args, unsigned int), "0123456789ABCDEF");
-	else if (ftype == 'f')
-		chrs_wrtn = pf_putfloat(va_arg(f_args, double));
 	else
 		chrs_wrtn = pf_putchar((int)ftype);
 	return (chrs_wrtn);
