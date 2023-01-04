@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:14:48 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/14 12:58:34 by samartin         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:02:12 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_itoab(long n, unsigned int base)
 		else
 			sign = 1;
 		dig = drop_d (strswp, n, base, sign);
-		nb_as_str = malloc ((dig + 1) * (sizeof(char)));
+		nb_as_str = malloc ((dig + 1) * sizeof(char));
 		if (!nb_as_str)
 			return (0);
 		rev_str(nb_as_str, strswp, dig);

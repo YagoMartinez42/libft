@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:07:05 by samartin          #+#    #+#             */
-/*   Updated: 2022/11/14 12:08:27 by samartin         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:56:03 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	*gnl_mexpand(void *ptr, int size)
 	int		i;
 
 	ret_ptr = malloc(size * sizeof(char));
+	if (!ret_ptr)
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
 		ret_ptr[i] = 0;
 		i++;
 	}
-	if (!ret_ptr)
-		return (NULL);
 	if (ptr && *(char *)ptr)
 	{
 		size = gnl_len(ptr) + 1;
