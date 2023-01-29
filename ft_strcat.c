@@ -6,10 +6,19 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:45:40 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/01 14:30:20 by samartin         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:43:16 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * It takes two strings and appends the second to the first. Enough allocated
+ * space for the full string is to be supossed.
+ * 
+ * @param dest This is the destination string.
+ * @param src The string to be appended.
+ * 
+ * @return The address of the first character of the string.
+ */
 char	*ft_strcat(char *dest, char *src)
 {
 	int	pos1;

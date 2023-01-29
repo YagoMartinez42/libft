@@ -6,10 +6,18 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:38:46 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/12 15:30:28 by samartin         ###   ########.fr       */
+/*   Updated: 2023/01/27 12:45:58 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * It returns the result of raising a base to a positive integer power
+ * 
+ * @param base the base number
+ * @param exp The exponent to raise the base to.
+ * 
+ * @return The result of the base to the power of exp.
+ */
 int	ft_int_pos_pow(int base, int exp)
 {
 	int	result;
@@ -25,11 +33,18 @@ int	ft_int_pos_pow(int base, int exp)
 	return (result);
 }
 
-int	ft_int_sqrt(int n)
+/**
+ * It uses binary search to find the square root of a positive integer
+ * 
+ * @param n the number to find the square root of
+ * 
+ * @return The square root of the number.
+ */
+int	ft_int_sqrt(unsigned int n)
 {
-	int	sqrtn;
-	int	low_ap;
-	int	high_ap;
+	unsigned int	sqrtn;
+	unsigned int	low_ap;
+	unsigned int	high_ap;
 
 	if (n <= 0)
 		return (0);
@@ -53,6 +68,17 @@ int	ft_int_sqrt(int n)
 	return (-1);
 }
 
+
+/**
+ * It checks if a number is prime by checking if it's divisible by any odd
+ * number between 3 and the square root of the number. Division by 2 is
+ * priorly checked to skip all evens. Numbers greater than the square root
+ * of the given one are never an exclusive divisor of a divisible number.
+ * 
+ * @param n the number to check if it's prime
+ * 
+ * @return 1 if the number is prime, 0 if it is not.
+ */
 int	ft_is_prime(int n)
 {
 	unsigned int	i;
@@ -60,12 +86,15 @@ int	ft_is_prime(int n)
 
 	if (n <= 1)
 		return (0);
-	i = 1;
+	if (n % 2 == 0 && n > 2)
+		return (0);
+	i = 3;
 	sq_n = (unsigned int)ft_int_sqrt(n);
-	while (++i <= sq_n)
+	while (i <= sq_n)
 	{
 		if ((n % i) == 0)
 			return (0);
+		i += 2;
 	}
 	return (1);
 }

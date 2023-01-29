@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:17:16 by samartin          #+#    #+#             */
-/*   Updated: 2023/01/04 12:48:27 by samartin         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:18:31 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_atoi(const char *str)
 	long	nb;
 	int		sign;
 
+	nb = 0;
+	sign = 1;
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
 	if (*str == '-')
@@ -36,10 +38,11 @@ int	ft_atoi(const char *str)
 		nb = (nb * 10) + *str - '0';
 		str++;
 	}
+	nb = nb * sign;
 	if (nb > __INT_MAX__)
 		return (-1);
 	else if (nb < (-(__INT_MAX__) - 1))
 		return (0);
 	else
-		return ((int)(sign * nb));
+		return ((int)nb);
 }

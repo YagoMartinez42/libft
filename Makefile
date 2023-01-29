@@ -6,11 +6,16 @@
 #    By: samartin <samartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:33:37 by samartin          #+#    #+#              #
-#    Updated: 2023/01/04 15:56:28 by samartin         ###   ########.fr        #
+#    Updated: 2023/01/27 13:06:00 by samartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= libft.a
+BASE	:= ftbase.a
+LISTS	:= ftlists.a
+FILEM	:= ftfilem.a
+PRINT	:= ftprint.a
+MATH	:= ftmath.a
 CC		:= gcc
 AR		:= ar -crs
 VPATH	:= lists filem print
@@ -27,24 +32,38 @@ SRCLSTS	:= ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c \
 SRCFLM	:= get_next_line_bonus.c get_next_line_utils_bonus.c
 SRCPRNT := ft_printf.c ft_printf_alpha_utils.c ft_printf_dec_utils.c \
 		ft_printf_hex_utils.c ft_print_memory.c
+SRCMATH := ft_math.c
 OBJ		:= ${SRC:.c=.o}
 OBJLSTS	:= ${SRCLSTS:.c=.o}
 OBJFLM	:= ${SRCFLM:.c=.o}
 OBJPRNT	:= ${SRCPRNT:.c=.o}
+OBJMATH := ${SRCMATH:.c=.o}
 CFLAGS	:= -Wall -Wextra -Werror
 RM		:= rm -rf
 
-
-all: ${NAME}
-
-${NAME}: ${OBJ} ${OBJLSTS} ${OBJFLM} ${OBJPRNT}
+all: ${OBJ} ${OBJLSTS} ${OBJFLM} ${OBJPRNT} ${OBJMATH}
 	${AR} ${NAME} $^
 
+${BASE}: ${OBJ}
+	${AR} ${BASE} $^
+
+${LISTS}: ${OBJLSTS}
+	${AR} ${LISTS} $^
+
+${FILEM}: ${OBJFLM}
+	${AR} ${FILEM} $^
+
+${PRINT}: ${OBJ} ${OBJPRNT}
+	${AR} ${PRINT} $^
+
+${MATH}: ${OBJMATH}
+	${AR} ${MATH} $^
+
 clean:
-	${RM} ${OBJ} ${OBJLSTS} ${OBJFLM} ${OBJPRNT}
+	${RM} ${OBJ} ${OBJLSTS} ${OBJFLM} ${OBJPRNT} ${OBJMATH}
 
 fclean: clean
-	${RM} ${NAME}
+	${RM} ${NAME} ${BASE} ${LISTS} ${FILEM} ${PRINT} ${MATH}
 
 re: fclean all
 

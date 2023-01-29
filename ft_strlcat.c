@@ -6,12 +6,22 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:33:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/30 14:14:55 by samartin         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:23:44 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+/**
+ * It appends the null-terminated string src to the end of dst. It will append
+ * at most dstsize - strlen(dst) - 1 bytes, NULL-terminating the result
+ * 
+ * @param dst The destination string.
+ * @param src The string to be appended.
+ * @param dstsize The size of the destination buffer.
+ * 
+ * @return The length of the string it tried to create in the buffer.
+ */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	pos1;
