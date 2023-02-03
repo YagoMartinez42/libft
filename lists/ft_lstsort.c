@@ -6,40 +6,36 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:09:00 by samartin          #+#    #+#             */
-/*   Updated: 2023/01/29 19:06:54 by samartin         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:39:59 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lists.h"
 
-static void	int_content_swap(t_list *node)
+t_list	*ft_lstsort(t_list *lst, int (*cmp)(int, int))
 {
-	int	swp;
-
-	swp = node->content;
-	node->next->content = node->content;
-	node->content = swp;
-}
-
-t_list	*ft_listsort(t_list *lst, int (*cmp)(int, int))
-{
-	t_list	*current;
+	t_list	*cur;
 	t_list	*past_last;
+	void	*swp;
 
 	if (lst && lst->next)
 	{
-		current = lst;
+		cur = lst;
 		past_last = NULL;
-		while (current->next != past_last)
+		while (cur->next != past_last)
 		{
-			while (current->next != past_last)
+			while (cur->next != past_last)
 			{
-				if (!(cmp(current->content, current->next->content)))
-					int_content_swap(current);
-				current = current->next;
+				if (!(cmp(*(int *)cur->content, *(int *)cur->next->content)))
+				{
+					swp = cur->content;
+					cur->content = cur->next->content;
+					cur->next->content = swp;
+				}
+				cur = cur->next;
 			}
-			past_last = current->next;
-			current = lst;
+			past_last = cur;
+			cur = lst;
 		}
 	}
 	return (lst);

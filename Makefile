@@ -6,16 +6,16 @@
 #    By: samartin <samartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:33:37 by samartin          #+#    #+#              #
-#    Updated: 2023/01/27 13:06:00 by samartin         ###   ########.fr        #
+#    Updated: 2023/02/01 16:34:54 by samartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= libft.a
-BASE	:= ftbase.a
-LISTS	:= ftlists.a
-FILEM	:= ftfilem.a
-PRINT	:= ftprint.a
-MATH	:= ftmath.a
+BASE	:= ft_base.a
+LISTS	:= ft_lists.a
+FILEM	:= ft_file_m.a
+PRINT	:= ft_print.a
+MATH	:= ft_math.a
 CC		:= gcc
 AR		:= ar -crs
 VPATH	:= lists filem print
@@ -27,8 +27,9 @@ SRC		:= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
 		ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 		ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c 
-SRCLSTS	:= ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c \
-		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+SRCLSTS	:= ft_lstadd_back.c ft_lstclear.c ft_lstadd_front.c ft_lstdelone.c \
+		ft_lstforeach.c ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c \
+		ft_lstremove_if.c ft_lstsize.c ft_lstsort.c
 SRCFLM	:= get_next_line_bonus.c get_next_line_utils_bonus.c
 SRCPRNT := ft_printf.c ft_printf_alpha_utils.c ft_printf_dec_utils.c \
 		ft_printf_hex_utils.c ft_print_memory.c
