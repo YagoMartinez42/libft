@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:38:46 by samartin          #+#    #+#             */
-/*   Updated: 2023/01/27 12:45:58 by samartin         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:27:10 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	ft_int_sqrt(unsigned int n)
 	return (-1);
 }
 
-
 /**
  * It checks if a number is prime by checking if it's divisible by any odd
  * number between 3 and the square root of the number. Division by 2 is
@@ -97,4 +96,19 @@ int	ft_is_prime(int n)
 		i += 2;
 	}
 	return (1);
+}
+
+/**
+ * ft_abs() returns the absolute value of n.
+ * 
+ * @param n The number to be converted.
+ * 
+ * @return The absolute value of the number.
+ */
+unsigned int	ft_abs(long n)
+{
+	if (n < 0)
+		return ((unsigned int)(n * -1));
+	else
+		return ((unsigned int)n);
 }

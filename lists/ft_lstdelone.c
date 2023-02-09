@@ -6,17 +6,25 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:31:07 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/14 13:06:16 by samartin         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:27:37 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lists.h"
 
+/**
+ * Delete the content of a linked list node if a function was passed, then free
+ * the node.
+ * 
+ * @param lst a pointer to the first element of a linked list.
+ * @param del the content deletion function, takes a void pointer.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst && del)
+	if (lst)
 	{
-		del(lst->content);
+		if (del)
+			del(lst->content);
 		free(lst);
 	}
 }

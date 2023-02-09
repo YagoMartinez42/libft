@@ -6,13 +6,14 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:17:16 by samartin          #+#    #+#             */
-/*   Updated: 2023/01/04 17:18:31 by samartin         ###   ########.fr       */
+/*   Updated: 2023/02/06 13:22:53 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * It takes a string, skips any whitespace, checks for a sign, skips any
- * leading zeros, and then converts the rest of the string to an integer.
+ * It takes a string, skips any whitespace, checks for a sign, and then converts
+ * the rest of the string (up to finding no more digits and ignoring the rest)
+ * to an integer.
  * 
  * @param str This is the string that we are converting to an integer.
  * 
@@ -30,8 +31,6 @@ int	ft_atoi(const char *str)
 	if (*str == '-')
 		sign = -1;
 	if (*str == '-' || *str == '+')
-		str++;
-	while (*str == '0')
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{

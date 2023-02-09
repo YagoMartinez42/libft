@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:33:13 by samartin          #+#    #+#             */
-/*   Updated: 2023/02/01 15:00:33 by samartin         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:42:11 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstsort(t_list *lst, int (*cmp)(int, int));
-void	ft_lstforeach(t_list *lst, void (*f)(void *));
 void	ft_lstremove_if(t_list **lst, void *data_ref, int (*cmp)(void *, \
 void *));
 

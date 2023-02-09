@@ -6,12 +6,21 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:59:33 by samartin          #+#    #+#             */
-/*   Updated: 2023/02/01 16:39:11 by samartin         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:22:06 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lists.h"
 
+/**
+ * It removes all nodes from a linked list that have a content that matches the
+ * data_ref parameter.
+ * 
+ * @param lst a pointer to a pointer to the first element of a linked list.
+ * @param data_ref the reference data to compare to.
+ * @param cmp a function that compares two elements of the list. Returns 0 if
+ * the contents are equal.
+ */
 void	ft_lstremove_if(t_list **lst, void *data_ref, int (*cmp)(void *, \
 void *))
 {
@@ -20,7 +29,7 @@ void *))
 
 	prev = NULL;
 	curr = *lst;
-	while (curr)
+	while (curr && cmp)
 	{
 		if (cmp(curr->content, data_ref) == 0)
 		{
