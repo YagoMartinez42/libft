@@ -6,7 +6,7 @@
 #    By: samartin <samartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:33:37 by samartin          #+#    #+#              #
-#    Updated: 2023/02/09 16:00:52 by samartin         ###   ########.fr        #
+#    Updated: 2023/03/17 11:21:33 by samartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,10 @@ SRC		:= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c 
 SRCLSTS	:= ft_lstadd_back.c ft_lstclear.c ft_lstadd_front.c ft_lstdelone.c \
 		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstremove_if.c \
-		ft_lstsize.c ft_lstsort.c
+		ft_lstsize.c ft_lstsort.c ft_bllst_add_back.c ft_bllst_add_front.c \
+		ft_bllst_bubsort.c ft_bllst_clear.c ft_bllst_first.c ft_bllst_iter.c \
+		ft_bllst_last.c ft_bllst_new.c ft_bllst_remove_node.c ft_bllst_size.c \
+		ft_long_compare_fs.c
 SRCFLM	:= get_next_line.c get_next_line_utils.c
 SRCPRNT := ft_printf.c ft_printf_alpha_utils.c ft_printf_dec_utils.c \
 		ft_printf_hex_utils.c ft_print_memory.c

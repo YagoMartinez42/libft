@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:06:37 by samartin          #+#    #+#             */
-/*   Updated: 2023/02/09 16:01:19 by samartin         ###   ########.fr       */
+/*   Updated: 2023/03/15 11:36:29 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static char	*append_chnk(char **line, char *buf)
 
 	i = 0;
 	line_len = 0;
-	if (*buf == 0)
-		buf++;
+	if (*buf == '\0')
+		i++;
 	if (*line)
 		line_len = gnl_len(*line);
 	while (*(buf + i) && *(buf + i) != '\n')
