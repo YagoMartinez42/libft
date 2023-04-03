@@ -6,12 +6,11 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:07:01 by samartin          #+#    #+#             */
-/*   Updated: 2023/03/21 14:54:13 by samartin         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:02:35 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lists.h"
-#include "../libft.h"
 /**
  * Swap the node with the next node in the list.
  * 
@@ -19,8 +18,8 @@
  */
 void	swap_nodes(t_bllist *node1, t_bllist *node2)
 {
-	t_bllist *swp;
-	
+	t_bllist	*swp;
+
 	if (node1 && node2)
 	{
 		swp = node1->next;
@@ -49,7 +48,7 @@ void	swap_nodes(t_bllist *node1, t_bllist *node2)
  * 
  * @return A pointer to the first node of the sorted list.
  */
-t_bllist	*ft_bllst_bubsort(t_bllist *cur, int (*cmp)(long, long))
+t_bllist	*ft_bllst_bubsort(t_bllist *cur, int (*cmp)(t_data, t_data))
 {
 	t_bllist	*past_last;
 
@@ -63,7 +62,7 @@ t_bllist	*ft_bllst_bubsort(t_bllist *cur, int (*cmp)(long, long))
 		{
 			while (cur->next != past_last)
 			{
-				if (!(cmp(cur->content, cur->next->content)))
+				if (!(cmp((cur->content), (cur->next->content))))
 					swap_nodes(cur, cur->next);
 				else
 					cur = cur->next;

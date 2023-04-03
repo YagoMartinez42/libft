@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:30 by samartin          #+#    #+#             */
-/*   Updated: 2023/03/16 16:01:41 by samartin         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:56:48 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param lst The list to iterate over.
  * @param f The function to be applied to each element of the list.
  */
-void	ft_bllst_iter(t_bllist *lst, void (*f)(long))
+void	ft_bllst_iter(t_bllist *lst, void (*f)(t_data))
 {
 	if (lst)
 		lst = ft_bllst_first(lst);

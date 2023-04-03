@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:39:01 by samartin          #+#    #+#             */
-/*   Updated: 2023/03/17 13:09:03 by samartin         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:16:06 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_bllst_clear(t_bllist *lst)
 	while (lst)
 	{
 		swap = (lst)->next;
-		lst->content = 0;
+		lst->content.lsnum = 0;
 		lst->next = NULL;
 		lst->prev = NULL;
 		free(lst);
