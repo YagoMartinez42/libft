@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 11:51:37 by samartin          #+#    #+#             */
-/*   Updated: 2023/03/17 13:07:42 by samartin         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:41:05 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
  */
 t_bllist	*ft_bllst_first(t_bllist *lst)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->prev)
-		lst = lst->prev;
+	if (lst)
+	{
+		while (lst->prev)
+			lst = lst->prev;
+	}
 	return (lst);
 }

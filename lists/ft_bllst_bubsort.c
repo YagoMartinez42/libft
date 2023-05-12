@@ -6,21 +6,20 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:07:01 by samartin          #+#    #+#             */
-/*   Updated: 2023/03/21 14:54:13 by samartin         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:33:54 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lists.h"
 #include "../libft.h"
+
 /**
- * Swap the node with the next node in the list.
- * 
- * @param node the node to swap
+ * Swap any two nodes in the list.
  */
 void	swap_nodes(t_bllist *node1, t_bllist *node2)
 {
-	t_bllist *swp;
-	
+	t_bllist	*swp;
+
 	if (node1 && node2)
 	{
 		swp = node1->next;

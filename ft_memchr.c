@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:17:11 by samartin          #+#    #+#             */
-/*   Updated: 2022/09/15 10:48:12 by samartin         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:14:53 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (pos < n)
 	{	
 		if (((unsigned char *)s)[pos] == (unsigned char)c)
-			return ((void *)&s[pos]);
+			return ((void *)(s + pos));
 		pos++;
 	}
 	return (0);
