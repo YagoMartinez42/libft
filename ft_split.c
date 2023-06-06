@@ -6,12 +6,21 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2022/10/01 11:38:55 by samartin         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:27:00 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+/**
+ * Counts the number of words in a string separated by a given character.
+ * 
+ * @param s The string that needs to be counted for words.
+ * @param c The character that is used as a delimiter to separate words.
+ *  
+ * @return an integer value, which represents the number of words in the input
+ * string s that are separated by the delimiter c.
+ */
 static int	count_words(const char *s, char c)
 {
 	unsigned int	i;
@@ -41,6 +50,23 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
+/**
+ * This function takes a string, a character, an array of strings, and an index,
+ * and adds a word to the array of strings at the given index by allocating
+ * memory and copying the characters from the string until the given character
+ * is encountered.
+ * 
+ * @param s The pointer to a string that we want to extract a word from.
+ * @param c The termination character that the function is searching for in the
+ * string s. It stops adding characters to the word when it encounters this
+ * character or the null terminator.
+ * @param ws A pointer to a pointer of char, which represents an array of
+ * strings. The function is designed to add a new word to this array.
+ * @param i The index in the array of words (ws) where to add the current word.
+ * 
+ * @return a pointer to a character, which is the next character in the input
+ * string after the word that was just added to the array of words.
+ */
 static const char	*add_word(const char *s, char c, char **ws, unsigned int i)
 {
 	unsigned int	len;
@@ -68,6 +94,19 @@ static const char	*add_word(const char *s, char c, char **ws, unsigned int i)
 	return (s);
 }
 
+/**
+ * Splits a string into an array of substrings based on a given delimiter
+ * character.
+ * 
+ * @param s The input string that needs to be split into words.
+ * @param c A character that is used as a delimiter to split the input string
+ * into multiple substrings. The function counts the number of substrings in
+ * the input string and then allocates memory to store each substring in the
+ * array.
+ * 
+ * @return A pointer to a pointer of characters (`char **`), meaning a
+ * table or array of strings. The last element of the array is set to NULL.
+ */
 char	**ft_split(char const *s, char c)
 {
 	unsigned int	i;

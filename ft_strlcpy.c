@@ -6,12 +6,26 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:06:24 by samartin          #+#    #+#             */
-/*   Updated: 2022/11/09 14:32:00 by samartin         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:40:13 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+/**
+ * Copies a string from src to dst with a maximum size of `dstsize` and returns
+ * the length of the source string.
+ * 
+ * @param dst A pointer to the destination string where the copied string will
+ * be stored.
+ * @param src The source string that needs to be copied. It is of type const
+ * char*, which means it cannot be modified by the function.
+ * @param dstsize The size of the destination buffer dst. It specifies the
+ * maximum number of characters that can be copied from the source string src
+ * to the destination string dst, including the null terminator.
+ * 
+ * @return the length of the source string src.
+ */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	pos;
