@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:06:37 by samartin          #+#    #+#             */
-/*   Updated: 2023/03/15 11:36:29 by samartin         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:40:11 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	displace_buffer(char *buf, int pos)
 	int	i;
 
 	i = 0;
-	if (buf[pos + i] == '\0')
+	if (buf[pos] == '\0')
 		buf[0] = '\0';
 	while (buf[pos + i] != '\0')
 	{
