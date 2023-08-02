@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:14:48 by samartin          #+#    #+#             */
-/*   Updated: 2023/08/02 16:20:53 by samartin         ###   ########.fr       */
+/*   Updated: 2023/08/02 16:42:03 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	drop_d(char *str, long n, int base)
 	base_symbols = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (n >= base)
 		idx = drop_d(str, n / base, base) + 1;
-	str[idx] =  base_symbols[n % base];
+	str[idx] = base_symbols[n % base];
 	return (idx);
 }
 
