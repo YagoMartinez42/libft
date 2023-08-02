@@ -6,96 +6,76 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:14:48 by samartin          #+#    #+#             */
-/*   Updated: 2023/02/09 16:15:47 by samartin         ###   ########.fr       */
+/*   Updated: 2023/08/02 16:20:53 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * This function takes a string, a number, a base, and a sign, places in the
- * string a reversed representation of the number in the given base and returns
- * the number of digits in the string
+ * Converts an long integer number to a string representation in a given base.
+ * Dropping recursively each digit inside its position in the string.
  * 
- * @param str the string that will be returned.
- * @param n the number to be converted.
- * @param base the base of the number.
- * @param sign 1 if positive, -1 if negative.
+ * @param str A pointer to a character array that is the string where the
+ * digits will be dropped.
+ * @param n The number that we want to convert to a character representation.
+ * @param base The number system base in which the number should be converted.
+ * It can have a value between 2 and 36.
  * 
- * @return The number of digits in the string.
+ * @return the index of the last character that was added to the string.
  */
-static int	drop_d(char *str, long n, unsigned int base, int sign)
+static int	drop_d(char *str, long n, int base)
 {
-	unsigned long	dig;
-	char			base_symbols[33];
+	int		idx;
+	char	*base_symbols;
 
-	dig = 0;
-	ft_strcpy(base_symbols, "0123456789ABCDEFGHIJKLMNOPQRSTUV");
-	while ((n * sign) >= base)
-	{
-		str[dig] = base_symbols[(n % base) * sign];
-		n = n / base;
-		dig++;
-	}
-	str[dig] = base_symbols[n * sign];
-	if (sign == -1)
-	{
-		dig++;
-		str[dig] = '-';
-	}
-	str[dig + 1] = '\0';
-	return (dig + 1);
+	idx = 0;
+	base_symbols = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	if (n >= base)
+		idx = drop_d(str, n / base, base) + 1;
+	str[idx] =  base_symbols[n % base];
+	return (idx);
 }
 
 /**
- * It reverses a string copying it in another one.
+ * Converts a long integer into a string representation in a specified base.
+ * first malloc is done reserving the space that would be needed for a 64-bit
+ * number in binary base, plus sign and string terminator. When the string is
+ * set, then is copied reserving the exact size and freeing the previous space. 
  * 
- * @param str_dst The destination string.
- * @param str_org The original string.
- * @param len the length of the string to be reversed.
+ * @param n A long integer value that we want to convert to a string.
+ * @param base The base of the number system being used. It determines the
+ * amount of symbols used to represent numbers. Allowing up to 'Z' covers any
+ * range between 2 and 36, inclusive.
+ * 
+ * @return A pointer to a character array (string) that represents the given
+ * number in the specified base.
  */
-static void	rev_str(char *str_dst, char *str_org, unsigned int len)
+char	*ft_itoab(long n, int base)
 {
-	unsigned int	i;
+	char	*nb_as_str;
+	char	*aux;
+	int		dig;
 
-	i = 0;
-	while (i < len)
-	{
-		str_dst[i] = str_org[len - i - 1];
-		i++;
-	}
-	str_dst[i] = '\0';
-}
-
-/**
- * It takes a number and a base, and returns a string representing the number in
- * the given base.
- * 
- * @param n the number to convert.
- * @param base the base of the number to be converted.
- * 
- * @return A string of characters that represent the number in the base given.
- */
-char	*ft_itoab(long n, unsigned int base)
-{
-	char			strswp[66];
-	char			*nb_as_str;
-	unsigned long	dig;
-	int				sign;
-
-	if (base <= 32)
-	{
-		if (n < 0)
-			sign = -1;
-		else
-			sign = 1;
-		dig = drop_d (strswp, n, base, sign);
-		nb_as_str = malloc ((dig + 1) * sizeof(char));
-		if (!nb_as_str)
-			return (0);
-		rev_str(nb_as_str, strswp, dig);
-	}
-	else
+	if (base > 36 || base < 2)
 		return (NULL);
+	nb_as_str = malloc (66 * sizeof(char));
+	if (!nb_as_str)
+		return (0);
+	dig = 0;
+	if (n < 0)
+	{
+		*nb_as_str = '-';
+		n = -n;
+		dig++;
+	}
+	dig += drop_d (nb_as_str + dig, n, base);
+	nb_as_str[dig + 2] = '\0';
+	aux = nb_as_str;
+	nb_as_str = malloc ((dig + 1) * sizeof(char));
+	ft_strcpy(nb_as_str, aux);
+	free(aux);
+	if (!nb_as_str)
+		return (0);
 	return (nb_as_str);
 }
