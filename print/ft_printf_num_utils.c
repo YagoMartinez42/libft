@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hex_utils.c                              :+:      :+:    :+:   */
+/*   ft_printf_num_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 11:37:06 by samartin          #+#    #+#             */
-/*   Updated: 2022/11/25 14:35:15 by samartin         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:05:47 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-unsigned int	pf_puthex(unsigned long num, char *hex_symbols)
+static int	pf_recur_drop(long num, char *base, int blen)
 {
-	int				dig;
-	unsigned int	count;
-	char			nb_digits [16];
+	int	count;
 
-	dig = 0;
-	while (num >= 16)
+	count = 0;
+	if (num >= blen)
+		count += pf_recur_drop(num / blen, base, blen);
+	count += write(1, &base[num % blen], 1);
+	return (count);
+}
+
+int	pf_putnum_b(unsigned long num, char *base, char mode)
+{
+	int	blen;
+	int	count;
+
+	count = 0;
+	if (num == 0xFFFFFFFF && mode == 1)
+		return (write(1, "-2147483648", 11));
+	else if (num < 0 && mode == 1)
 	{
-		nb_digits[dig] = hex_symbols[(num % 16)];
-		num = num / 16;
-		dig++;
+		count = write(1, "-", 1);
+		num = -num;
 	}
-	nb_digits[dig] = hex_symbols[num];
-	count = (unsigned int)(dig + 1);
-	while (dig >= 0)
-	{
-		write (1, (nb_digits + dig), 1);
-		dig--;
-	}
+	blen = 0;
+	while (base[blen])
+		blen++;
+	count += pf_recur_drop(num, base, blen);
 	return (count);
 }
 
@@ -40,6 +48,6 @@ unsigned int	pf_putaddr(void *addr)
 	unsigned int	count;
 
 	count = write (1, "0x", 2);
-	count += pf_puthex((unsigned long)addr, "0123456789abcdef");
+	count += pf_putnum_b((long)addr, "0123456789abcdef", 0);
 	return (count);
 }

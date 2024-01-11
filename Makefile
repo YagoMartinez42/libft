@@ -6,7 +6,7 @@
 #    By: samartin <samartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:33:37 by samartin          #+#    #+#              #
-#    Updated: 2023/05/12 14:11:29 by samartin         ###   ########.fr        #
+#    Updated: 2023/10/24 15:24:25 by samartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,8 +85,7 @@ SRCFLM	:= get_next_line.c \
 			get_next_line_utils.c
 SRCPRNT := ft_printf.c \
 			ft_printf_alpha_utils.c \
-			ft_printf_dec_utils.c \
-			ft_printf_hex_utils.c \
+			ft_printf_num_utils.c \
 			ft_print_memory.c
 SRCMATH := ft_math.c
 OBJ		:= ${SRC:.c=.o}
@@ -94,7 +93,6 @@ OBJLSTS	:= ${SRCLSTS:.c=.o}
 OBJFLM	:= ${SRCFLM:.c=.o}
 OBJPRNT	:= ${SRCPRNT:.c=.o}
 OBJMATH := ${SRCMATH:.c=.o}
-
 
 all: ${NAME}
 

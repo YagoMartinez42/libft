@@ -6,33 +6,33 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:44:40 by samartin          #+#    #+#             */
-/*   Updated: 2022/12/02 15:39:24 by samartin         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:35:29 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_prints.h"
+#include "ft_printf.h"
 
 static unsigned int	process_data(const char ftype, va_list f_args)
 {
-	unsigned int	chrs_wrtn;
+	unsigned int	wrtn;
 
 	if (ftype == 'c')
-		chrs_wrtn = pf_putchar(va_arg(f_args, int));
+		wrtn = pf_putchar(va_arg(f_args, int));
 	else if (ftype == 's')
-		chrs_wrtn = pf_putstr(va_arg(f_args, char *));
+		wrtn = pf_putstr(va_arg(f_args, char *));
 	else if (ftype == 'p')
-		chrs_wrtn = pf_putaddr(va_arg(f_args, void *));
+		wrtn = pf_putaddr(va_arg(f_args, void *));
 	else if (ftype == 'd' || ftype == 'i')
-		chrs_wrtn = pf_putint(va_arg(f_args, int), 's');
+		wrtn = pf_putnum_b(va_arg(f_args, int), "0123456789", 1);
 	else if (ftype == 'u')
-		chrs_wrtn = pf_putint(va_arg(f_args, int), 'u');
+		wrtn = pf_putnum_b(va_arg(f_args, unsigned int), "0123456789", 0);
 	else if (ftype == 'x')
-		chrs_wrtn = pf_puthex(va_arg(f_args, unsigned int), "0123456789abcdef");
+		wrtn = pf_putnum_b(va_arg(f_args, unsigned int), "0123456789abcdef", 0);
 	else if (ftype == 'X')
-		chrs_wrtn = pf_puthex(va_arg(f_args, unsigned int), "0123456789ABCDEF");
+		wrtn = pf_putnum_b(va_arg(f_args, unsigned int), "0123456789ABCDEF", 0);
 	else
-		chrs_wrtn = pf_putchar((int)ftype);
-	return (chrs_wrtn);
+		wrtn = pf_putchar((int)ftype);
+	return (wrtn);
 }
 
 int	ft_printf(const char *format, ...)

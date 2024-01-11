@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:48 by samartin          #+#    #+#             */
-/*   Updated: 2023/10/24 15:33:33 by samartin         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:36:21 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTS_H
-# define FT_PRINTS_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
