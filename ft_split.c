@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:54:56 by samartin          #+#    #+#             */
-/*   Updated: 2023/06/06 13:27:00 by samartin         ###   ########.fr       */
+/*   Updated: 2024/04/06 18:46:08 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ static const char	*add_word(const char *s, char c, char **ws, unsigned int i)
 	{
 		while (i--)
 			free(ws[i]);
-		free(ws[i]);
+		if (ws[i])
+			free(ws[i]);
 		return (NULL);
 	}
 	j = 0;

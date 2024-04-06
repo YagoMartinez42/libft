@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:07:27 by samartin          #+#    #+#             */
-/*   Updated: 2023/06/29 11:53:31 by samartin         ###   ########.fr       */
+/*   Updated: 2024/04/05 16:28:56 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,14 @@ char	*ft_strchr(const char *s, int c)
 {
 	unsigned int	pos;
 
-	if (s)
+	pos = 0;
+	while (s[pos] != 0)
 	{
-		pos = 0;
-		while (s[pos] != 0)
-		{	
-			if (s[pos] == (char)c)
-				return ((char *)&s[pos]);
-			pos++;
-		}
 		if (s[pos] == (char)c)
 			return ((char *)&s[pos]);
+		pos++;
 	}
+	if (s[pos] == (char)c)
+		return ((char *)&s[pos]);
 	return (0);
 }

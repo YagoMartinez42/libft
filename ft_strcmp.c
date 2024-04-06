@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:23:15 by samartin          #+#    #+#             */
-/*   Updated: 2024/01/11 13:36:40 by samartin         ###   ########.fr       */
+/*   Updated: 2024/04/05 16:19:28 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 	i = 0;
 	if (!s1 && !s2)
-		return (0)
+		return (0);
 	else if (!s1)
 		return (-1);
 	else if (!s2)

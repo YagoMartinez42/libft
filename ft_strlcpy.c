@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:06:24 by samartin          #+#    #+#             */
-/*   Updated: 2023/05/26 16:40:13 by samartin         ###   ########.fr       */
+/*   Updated: 2024/04/06 17:11:42 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	pos;
 
 	pos = 0;
-	while ((src[pos] != 0) && ((int)pos < ((int)dstsize) - 1))
+	while (dstsize && (src[pos] != 0) && (pos < dstsize - 1))
 	{
 		dst[pos] = src[pos];
 		pos++;

@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:14:48 by samartin          #+#    #+#             */
-/*   Updated: 2023/08/02 16:42:03 by samartin         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:10:08 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ char	*ft_itoab(long n, int base)
 		dig++;
 	}
 	dig += drop_d (nb_as_str + dig, n, base);
-	nb_as_str[dig + 2] = '\0';
+	nb_as_str[dig + 1] = '\0';
 	aux = nb_as_str;
-	nb_as_str = malloc ((dig + 1) * sizeof(char));
+	nb_as_str = malloc ((dig + 2) * sizeof(char));
 	ft_strcpy(nb_as_str, aux);
 	free(aux);
 	if (!nb_as_str)
