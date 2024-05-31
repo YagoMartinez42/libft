@@ -23,7 +23,7 @@ static int	pf_recur_drop(long num, char *base, int blen)
 	return (count);
 }
 
-int	pf_putnum_b(unsigned long num, char *base, char mode)
+int	pf_putnum_b(long num, char *base, char mode)
 {
 	int	blen;
 	int	count;
